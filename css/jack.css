@@ -93,6 +93,24 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
+@media (max-width: 767px) {
+    .row {
+        padding: 50px 0;
+    }
+
+    .featurette-divider{
+        margin: 0px 0;
+    }
+}
+
+@media (max-width: 400px) {
+
+    h1 {
+        font-size: 30px;
+    }
+
+}
+
 @media (min-width: 992px) {
     .featurette-heading {
         margin-top: 120px;
