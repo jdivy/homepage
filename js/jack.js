@@ -1,3 +1,12 @@
+
+function isMobile() {
+    if(window.innerWidth <= 767) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 var $root = $('html, body');
 $('a.slide').click(function() {
     var href = $.attr(this, 'href');
@@ -9,9 +18,11 @@ $('a.slide').click(function() {
     return false;
 });
 
-$('.nav a').on('click', function(){
-    $(".navbar-toggle").click();
-});
+if(isMobile()){
+    $('.nav a').on('click', function(){
+        $(".navbar-toggle").click();
+    });
+}
 
 $('#memtip').tooltip({
    title : "Say what?! Memphis is Jack's hometown, but more importantly it is the 'SuperHub' of FedEx. Two words: Tennessee Brewery."
