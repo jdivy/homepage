@@ -14,6 +14,7 @@ dependencies {
 task update {
     def user = System.getenv("USER")
     def home = System.getenv("HOME")
+    def folder = "/usr/share/nginx/www/homepage"
     description = "Update files on remote server as $user."
 
     // Redefine scp Ant task, with the classpath property set to our newly defined
@@ -26,8 +27,8 @@ task update {
         def passphrase = console.readPassword("%s: ", "Please enter passphrase for the key file ($home/.ssh/id_rsa)")
 
         // Invoke the scp Ant task. (Use gradle -i update to see the output of the Ant task.)
-        ant.scp(todir: "${user}@jackivy.com:/tmp",
-                keyfile: "${home}/.ssh/id_rsa",
+        ant.scp(todir: "$user@jackivy.com:$folder",
+                keyfile: "$home/.ssh/id_rsa",
                 passphrase: passphrase as String, // Use phassphrase entered by the user.
                 verbose: 'true') {
             fileset(dir: 'web') {
